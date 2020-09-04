@@ -81,3 +81,7 @@
 - 导航组件：NavMenu
 - 标签页：Tabs
 - 面包屑：Breadcrumb
+
+## 加入交流群
+
+![image-20200904185952422](README.assets/image-20200904185952422.png)
