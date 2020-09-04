@@ -1,0 +1,292 @@
+{
+  "zh-CN": [
+    {
+      "name": "更新日志",
+      "path": "/changelog"
+    },
+    {
+      "name": "开发指南",
+      "children": [
+        {
+          "path": "/installation",
+          "name": "安装（待编辑）"
+        },
+        {
+          "path": "/quickstart",
+          "name": "快速上手（待编辑）"
+        },
+        {
+          "path": "/i18n",
+          "name": "国际化（待完成）"
+        },
+        {
+          "path": "/custom-theme",
+          "name": "自定义主题（待完成）"
+        },
+        {
+          "path": "/transition",
+          "name": "内置过渡动画（待完成）"
+        }
+      ]
+    },
+    {
+      "name": "组件",
+      "groups": [
+        {
+          "groupName": "Basic",
+          "list": [
+            {
+              "path": "/layout",
+              "title": "Layout 布局（已完成）"
+            },
+            {
+              "path": "/container",
+              "title": "Container 布局容器（待完成）"
+            },
+            {
+              "path": "/color",
+              "title": "Color 色彩（已完成）"
+            },
+            {
+              "path": "/typography",
+              "title": "Typography 字体（已完成）"
+            },
+            {
+              "path": "/border",
+              "title": "Border 边框（已完成）"
+            },
+            {
+              "path": "/icon",
+              "title": "Icon 图标（已完成）"
+            },
+            {
+              "path": "/button",
+              "title": "Button 按钮（已完成）"
+            },
+            {
+              "path": "/link",
+              "title": "Link 文字链接（已完成）"
+            }
+          ]
+        },
+        {
+          "groupName": "Form",
+          "list": [
+            {
+              "path": "/radio",
+              "title": "Radio 单选框（已完成）"
+            },
+            {
+              "path": "/checkbox",
+              "title": "Checkbox 多选框（已完成）"
+            },
+            {
+              "path": "/input",
+              "title": "Input 输入框（已完成）"
+            },
+            {
+              "path": "/input-number",
+              "title": "InputNumber 计数器（已完成）"
+            },
+            {
+              "path": "/select",
+              "title": "Select 选择器（已完成）"
+            },
+            {
+              "path": "/cascader",
+              "title": "Cascader 级联选择器（待完成）"
+            },
+            {
+              "path": "/switch",
+              "title": "Switch 开关（已完成）"
+            },
+            {
+              "path": "/slider",
+              "title": "Slider 滑块（待完成）"
+            },
+            {
+              "path": "/time-picker",
+              "title": "TimePicker 时间选择器（待完成）"
+            },
+            {
+              "path": "/date-picker",
+              "title": "DatePicker 日期选择器（待完成）"
+            },
+            {
+              "path": "/datetime-picker",
+              "title": "DateTimePicker 日期时间选择器"
+            },
+            {
+              "path": "/upload",
+              "title": "Upload 上传（待完成）"
+            },
+            {
+              "path": "/rate",
+              "title": "Rate 评分（待完成）"
+            },
+            {
+              "path": "/color-picker",
+              "title": "ColorPicker 颜色选择器（待完成）"
+            },
+            {
+              "path": "/transfer",
+              "title": "Transfer 穿梭框（待完成）"
+            },
+            {
+              "path": "/form",
+              "title": "Form 表单（已完成）"
+            }
+          ]
+        },
+        {
+          "groupName": "Data",
+          "list": [
+            {
+              "path": "/table",
+              "title": "Table 表格（待完成）"
+            },
+            {
+              "path": "/tag",
+              "title": "Tag 标签（已完成）"
+            },
+            {
+              "path": "/progress",
+              "title": "Progress 进度条（待完成）"
+            },
+            {
+              "path": "/tree",
+              "title": "Tree 树形控件（待完成）"
+            },
+            {
+              "path": "/pagination",
+              "title": "Pagination 分页（已完成）"
+            },
+            {
+              "path": "/badge",
+              "title": "Badge 标记（待完成）"
+            },
+            {
+              "path": "/avatar",
+              "title": "Avatar 头像（待完成）"
+            }
+          ]
+        },
+        {
+          "groupName": "Notice",
+          "list": [
+            {
+              "path": "/alert",
+              "title": "Alert 警告（待完成）"
+            },
+            {
+              "path": "/loading",
+              "title": "Loading 加载（待完成）"
+            },
+            {
+              "path": "/message",
+              "title": "Message 消息提示（待完成）"
+            },
+            {
+              "path": "/message-box",
+              "title": "MessageBox 弹框（待完成）"
+            },
+            {
+              "path": "/notification",
+              "title": "Notification 通知（待完成）"
+            }
+          ]
+        },
+        {
+          "groupName": "Navigation",
+          "list": [
+            {
+              "path": "/menu",
+              "title": "NavMenu 导航菜单（待完成）"
+            },
+            {
+              "path": "/tabs",
+              "title": "Tabs 标签页（待完成）"
+            },
+            {
+              "path": "/breadcrumb",
+              "title": "Breadcrumb 面包屑（待完成）"
+            },
+            {
+              "path": "/page-header",
+              "title": "PageHeader 页头（待完成）"
+            },
+            {
+              "path": "/dropdown",
+              "title": "Dropdown 下拉菜单（待完成）"
+            },
+            {
+              "path": "/steps",
+              "title": "Steps 步骤条（待完成）"
+            }
+          ]
+        },
+        {
+          "groupName": "Others",
+          "list": [
+            {
+              "path": "/dialog",
+              "title": "Dialog 对话框（待完成）"
+            },
+            {
+              "path": "/tooltip",
+              "title": "Tooltip 文字提示（待完成）"
+            },
+            {
+              "path": "/popover",
+              "title": "Popover 弹出框（待完成）"
+            },
+            {
+              "path": "/popconfirm",
+              "title": "Popconfirm 气泡确认框（待完成）"
+            },
+            {
+              "path": "/card",
+              "title": "Card 卡片（待完成）"
+            },
+            {
+              "path": "/carousel",
+              "title": "Carousel 走马灯（待完成）"
+            },
+            {
+              "path": "/collapse",
+              "title": "Collapse 折叠面板（待完成）"
+            },
+            {
+              "path": "/timeline",
+              "title": "Timeline 时间线（待完成）"
+            },
+            {
+              "path": "/divider",
+              "title": "Divider 分割线（待完成）"
+            },
+            {
+              "path": "/calendar",
+              "title": "Calendar 日历（待完成）"
+            },
+            {
+              "path": "/image",
+              "title": "Image 图片（待完成）"
+            },
+            {
+              "path": "/backtop",
+              "title": "Backtop 回到顶部（待完成）"
+            },
+            {
+              "path": "/infiniteScroll",
+              "title": "InfiniteScroll 无限滚动（待完成）"
+            },
+            {
+              "path": "/drawer",
+              "title": "Drawer 抽屉（待完成）"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

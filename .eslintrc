@@ -1,0 +1,25 @@
+{
+  "root": true,
+  "globals": {
+    "ga": true,
+    "chrome": true
+  },
+  "env": { "browser": true, "node": true, "jasmine": true, "jest": true, "es6": true },
+  "plugins": ["html", "json", "markdown"],
+  "extends": ["plugin:vue/recommended", "prettier"],
+  "rules": {
+    "no-restricted-globals": ["error", "event", "fdescribe"],
+    "space-before-function-paren": 0,
+    "global-require": 0,
+    "indent": 0
+  },
+  "parserOptions": {
+    "parser": "babel-eslint",
+    "sourceType": "module",
+    "allowImportExportEverywhere": true,
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  }
+}

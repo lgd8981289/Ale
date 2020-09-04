@@ -1,0 +1,100 @@
+@import 'var';
+
+.fade-in-linear-enter-active,
+.fade-in-linear-leave-active {
+  transition: $--fade-linear-transition;
+}
+.fade-in-linear-enter,
+.fade-in-linear-leave,
+.fade-in-linear-leave-active {
+  opacity: 0;
+}
+
+.al-fade-in-linear-enter-active,
+.al-fade-in-linear-leave-active {
+  transition: $--fade-linear-transition;
+}
+.al-fade-in-linear-enter,
+.al-fade-in-linear-leave,
+.al-fade-in-linear-leave-active {
+  opacity: 0;
+}
+
+.al-fade-in-enter-active,
+.al-fade-in-leave-active {
+  transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+}
+.al-fade-in-enter,
+.al-fade-in-leave-active {
+  opacity: 0;
+}
+
+.al-zoom-in-center-enter-active,
+.al-zoom-in-center-leave-active {
+  transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+}
+.al-zoom-in-center-enter,
+.al-zoom-in-center-leave-active {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.al-zoom-in-top-enter-active,
+.al-zoom-in-top-leave-active {
+  opacity: 1;
+  transform: scaleY(1);
+  transition: $--md-fade-transition;
+  transform-origin: center top;
+}
+.al-zoom-in-top-enter,
+.al-zoom-in-top-leave-active {
+  opacity: 0;
+  transform: scaleY(0);
+}
+
+.al-zoom-in-bottom-enter-active,
+.al-zoom-in-bottom-leave-active {
+  opacity: 1;
+  transform: scaleY(1);
+  transition: $--md-fade-transition;
+  transform-origin: center bottom;
+}
+.al-zoom-in-bottom-enter,
+.al-zoom-in-bottom-leave-active {
+  opacity: 0;
+  transform: scaleY(0);
+}
+
+.al-zoom-in-left-enter-active,
+.al-zoom-in-left-leave-active {
+  opacity: 1;
+  transform: scale(1, 1);
+  transition: $--md-fade-transition;
+  transform-origin: top left;
+}
+.al-zoom-in-left-enter,
+.al-zoom-in-left-leave-active {
+  opacity: 0;
+  transform: scale(0.45, 0.45);
+}
+
+.collapse-transition {
+  transition: 0.3s height ease-in-out, 0.3s padding-top ease-in-out, 0.3s padding-bottom ease-in-out;
+}
+.horizontal-collapse-transition {
+  transition: 0.3s width ease-in-out, 0.3s padding-left ease-in-out, 0.3s padding-right ease-in-out;
+}
+
+.al-list-enter-active,
+.al-list-leave-active {
+  transition: all 1s;
+}
+.al-list-enter,
+.al-list-leave-active {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.al-opacity-transition {
+  transition: opacity 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+}

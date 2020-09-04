@@ -1,0 +1,73 @@
+.demo-form {
+  .al-select .al-input {
+    width: 380px;
+  }
+  .al-form {
+    width: 460px;
+  }
+
+  .line {
+    text-align: center;
+  }
+
+  .al-checkbox-group {
+    width: 320px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &:after,
+    &:before {
+      content: ' ';
+      display: table;
+    }
+    &:after {
+      clear: both;
+      visibility: hidden;
+      font-size: 0;
+      height: 0;
+    }
+
+    .al-checkbox {
+      float: left;
+      width: 160px;
+      padding-right: 20px;
+      margin: 0;
+      padding: 0;
+
+      + .al-checkbox {
+        margin-left: 0;
+      }
+    }
+  }
+  .demo-form-normal {
+    width: 460px;
+  }
+  .demo-form-inline {
+    width: auto;
+
+    .al-input {
+      width: 150px;
+    }
+    > * {
+      margin-right: 10px;
+    }
+  }
+  .demo-ruleForm {
+    width: 460px;
+
+    .al-select .al-input {
+      width: 360px;
+    }
+  }
+  .demo-dynamic {
+    .al-input {
+      margin-right: 10px;
+      width: 270px;
+      vertical-align: top;
+    }
+  }
+  .fr {
+    float: right;
+  }
+}

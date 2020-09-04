@@ -1,0 +1,168 @@
+@import 'mixins/mixins';
+@import 'mixins/utils';
+@import 'common/var';
+
+@include b(form) {
+  @include m(label-left) {
+    & .al-form-item__label {
+      text-align: left;
+    }
+  }
+  @include m(label-top) {
+    & .al-form-item__label {
+      float: none;
+      display: inline-block;
+      text-align: left;
+      padding: 0 0 10px 0;
+    }
+  }
+  @include m(inline) {
+    & .al-form-item {
+      display: inline-block;
+      margin-right: 10px;
+      vertical-align: top;
+    }
+    & .al-form-item__label {
+      float: none;
+      display: inline-block;
+    }
+    & .al-form-item__content {
+      display: inline-block;
+      vertical-align: top;
+    }
+    &.al-form--label-top .al-form-item__content {
+      display: block;
+    }
+  }
+}
+@include b(form-item) {
+  margin-bottom: 22px;
+  @include utils-clearfix;
+
+  & .al-form-item {
+    margin-bottom: 0;
+  }
+
+  & .al-input__validateIcon {
+    display: none;
+  }
+
+  @include m(medium) {
+    .al-form-item__label {
+      line-height: 36px;
+    }
+    .al-form-item__content {
+      line-height: 36px;
+    }
+  }
+  @include m(small) {
+    .al-form-item__label {
+      line-height: 32px;
+    }
+    .al-form-item__content {
+      line-height: 32px;
+    }
+    &.al-form-item {
+      margin-bottom: 18px;
+    }
+    .al-form-item__error {
+      padding-top: 2px;
+    }
+  }
+  @include m(mini) {
+    .al-form-item__label {
+      line-height: 28px;
+    }
+    .al-form-item__content {
+      line-height: 28px;
+    }
+    &.al-form-item {
+      margin-bottom: 18px;
+    }
+    .al-form-item__error {
+      padding-top: 1px;
+    }
+  }
+
+  @include e(label-wrap) {
+    float: left;
+    .al-form-item__label {
+      display: inline-block;
+      float: none;
+    }
+  }
+
+  @include e(label) {
+    text-align: right;
+    vertical-align: middle;
+    float: left;
+    font-size: $--form-label-font-size;
+    color: $--color-text-regular;
+    line-height: 40px;
+    padding: 0 12px 0 0;
+    box-sizing: border-box;
+  }
+  @include e(content) {
+    line-height: 40px;
+    position: relative;
+    font-size: 14px;
+    @include utils-clearfix;
+
+    .al-input-group {
+      vertical-align: top;
+    }
+  }
+  @include e(error) {
+    color: $--color-danger;
+    font-size: 12px;
+    line-height: 1;
+    padding-top: 4px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    @include m(inline) {
+      position: relative;
+      top: auto;
+      left: auto;
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+
+  @include when(required) {
+    @include pseudo('not(.is-no-asterisk)') {
+      & > .al-form-item__label:before,
+      & .al-form-item__label-wrap > .al-form-item__label:before {
+        content: '*';
+        color: $--color-danger;
+        margin-right: 4px;
+      }
+    }
+  }
+
+  @include when(error) {
+    & .al-input__inner,
+    & .al-textarea__inner {
+      &,
+      &:focus {
+        border-color: $--color-danger;
+      }
+    }
+    & .al-input-group__append,
+    & .al-input-group__prepend {
+      & .al-input__inner {
+        border-color: transparent;
+      }
+    }
+    .al-input__validateIcon {
+      color: $--color-danger;
+    }
+  }
+
+  @include m(feedback) {
+    .al-input__validateIcon {
+      display: inline-block;
+    }
+  }
+}

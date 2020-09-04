@@ -1,0 +1,11 @@
+.demo-block.demo-popover {
+  .al-popover + .al-popover {
+    margin-left: 10px;
+  }
+  .al-input {
+    width: 360px;
+  }
+  .al-button {
+    margin-left: 10px;
+  }
+}
