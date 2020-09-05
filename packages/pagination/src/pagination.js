@@ -243,10 +243,10 @@ const AlPagination = {
         return (
           <span class="al-pagination__sizes">
             <al-select
-              value={this.$parent.internalPageSize}
+              modelValue={this.$parent.internalPageSize}
               popperClass={this.$parent.popperClass || ''}
               size="mini"
-              on-input={this.handleChange}
+              onInput={this.handleChange}
               disabled={this.$parent.disabled}
             >
               {this.pageSizes.map(item => (
@@ -301,6 +301,7 @@ const AlPagination = {
           }
         },
         handleInput(value) {
+          console.log(value);
           this.userInput = value;
         },
         handleChange(value) {
@@ -318,7 +319,9 @@ const AlPagination = {
               class="al-pagination__editor is-in-pagination"
               min={1}
               max={this.$parent.internalPageCount}
-              value={this.userInput !== null ? this.userInput : this.$parent.internalCurrentPage}
+              modelValue={
+                this.userInput !== null ? this.userInput : this.$parent.internalCurrentPage
+              }
               type="number"
               disabled={this.$parent.disabled}
               nativeOnKeyup={this.handleKeyup}
@@ -335,7 +338,6 @@ const AlPagination = {
       mixins: [Locale],
 
       render() {
-        console.log(this.t);
         return typeof this.$parent.total === 'number' ? (
           <span class="al-pagination__total">
             {this.t('al.pagination.total', { total: this.$parent.total })}

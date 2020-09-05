@@ -420,6 +420,7 @@ const AlSelect = defineComponent({
     'update:modelValue': null,
     'visible-change': null,
     'remove-tag': null,
+    input: null,
     change: null,
     focus: null,
     blur: null,
@@ -875,6 +876,7 @@ const AlSelect = defineComponent({
           value.push(option.value);
         }
         this.$emit('update:modelValue', value);
+        this.$emit('input', value);
         this.emitChange(value);
         if (option.created) {
           this.query = '';
@@ -884,6 +886,7 @@ const AlSelect = defineComponent({
         if (this.filterable) this.$refs.input.focus();
       } else {
         this.$emit('update:modelValue', option.value);
+        this.$emit('input', option.value);
         this.emitChange(option.value);
         this.visible = false;
       }

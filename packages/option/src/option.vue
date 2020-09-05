@@ -158,7 +158,7 @@ const option = defineComponent({
         const valueKey = this.select.valueKey;
         return (
           arr &&
-          arr.some((item) => {
+          arr.some(item => {
             return getValueByPath(item, valueKey) === getValueByPath(target, valueKey);
           })
         );
@@ -199,7 +199,7 @@ const option = defineComponent({
     // TODO: broadcast 事件修正
     // this.$on('queryChange', this.queryChange);
     // this.$on('handleGroupDisabled', this.handleGroupDisabled);
-    $alOn(this.alOptionGroupHandleGroupDisabled, (val) => {
+    $alOn(this.alOptionGroupHandleGroupDisabled, val => {
       this.handleGroupDisabled(val);
     });
     $alOn(this.alOptionQueryChangeSymbol, this.queryChange);

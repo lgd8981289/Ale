@@ -222,17 +222,16 @@ function initMethods() {
   function handleInput(event) {
     // should not emit input during composition
     if (this.isComposing) return;
-
     // should remove the following line when we don't support IE
     if (event.target.value === this.nativeInputValue) return;
-
     if (this.$attrs.modelModifiers && this.$attrs.modelModifiers.number) {
       const numberValue = parseInt(event.target.value, 10);
       this.$emit('update:modelValue', numberValue ? numberValue : event.target.value);
+      this.$emit('input', numberValue ? numberValue : event.target.value);
     } else {
       this.$emit('update:modelValue', event.target.value);
+      this.$emit('input', event.target.value);
     }
-
     // ensure native input value is controlled
     nextTick().then(() => {
       this.setNativeInputValue();
@@ -276,6 +275,7 @@ function initMethods() {
 
   function clear() {
     this.$emit('update:modelValue', '');
+    this.$emit('input', '');
     this.$emit('change', '');
     this.$emit('clear');
   }
@@ -329,6 +329,7 @@ const AlInput = defineComponent({
 
   emits: {
     'update:modelValue': null,
+    input: null,
     change: null,
     clear: null,
     blur: null,
