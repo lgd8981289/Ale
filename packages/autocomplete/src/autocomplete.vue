@@ -7,10 +7,9 @@
     :aria-expanded="suggestionVisible"
     :aria-owns="id"
   >
-    <!-- 
-      v-bind="[$props, $attrs]" -->
     <al-input
       ref="input"
+      v-bind="{ ...$props, ...$attrs }"
       @input="handleInput"
       @change="handleChange"
       @focus="handleFocus"
@@ -86,6 +85,7 @@ function initMitt() {
 export default {
   name: 'AlAutocomplete',
   emits: {
+    'update:modelValue': null,
     input: null,
     change: null,
     focus: null,
@@ -107,6 +107,7 @@ export default {
   directives: { Clickoutside },
 
   props: {
+    modelValue: String,
     valueKey: {
       type: String,
       default: 'value'
@@ -121,7 +122,6 @@ export default {
     disabled: Boolean,
     name: String,
     size: String,
-    value: String,
     maxlength: Number,
     minlength: Number,
     autofocus: Boolean,
@@ -205,7 +205,7 @@ export default {
         return;
       }
       this.loading = true;
-      this.fetchSuggestions(queryString, (suggestions) => {
+      this.fetchSuggestions(queryString, suggestions => {
         this.loading = false;
         if (this.suggestionDisabled) {
           return;
@@ -219,7 +219,7 @@ export default {
       });
     },
     handleInput(value) {
-      this.$emit('input', value);
+      this.$emit('update:modelValue', value);
       this.suggestionDisabled = false;
       if (!this.triggerOnFocus && !value) {
         this.suggestionDisabled = true;
@@ -235,7 +235,7 @@ export default {
       this.activated = true;
       this.$emit('focus', event);
       if (this.triggerOnFocus) {
-        this.debouncedGetData(this.value);
+        this.debouncedGetData(this.modelValue);
       }
     },
     handleBlur(event) {
@@ -257,7 +257,7 @@ export default {
         e.preventDefault();
         this.select(this.suggestions[this.highlightedIndex]);
       } else if (this.selectWhenUnmatched) {
-        this.$emit('select', { value: this.value });
+        this.$emit('select', { value: this.modelValue });
         // this.$nextTick((_) => {
         //   this.suggestions = [];
         //   this.highlightedIndex = -1;
@@ -269,7 +269,7 @@ export default {
       }
     },
     select(item) {
-      this.$emit('input', item[this.valueKey]);
+      this.$emit('update:modelValue', item[this.valueKey]);
       this.$emit('select', item);
       // this.$nextTick((_) => {
       //   this.suggestions = [];
@@ -319,7 +319,7 @@ export default {
     // this.$on('item-click', (item) => {
     //   this.select(item);
     // });
-    $alOn(this.alAutocompleteItemClickSymbol, (e) => {
+    $alOn(this.alAutocompleteItemClickSymbol, e => {
       this.select(e);
     });
     let $input = this.getInput();
