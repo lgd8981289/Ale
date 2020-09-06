@@ -1,4 +1,5 @@
 # （wip）Element-UI 3 (Ale-UI) for vue3
+
 这是一个基于 element-ui 修改的，支持 Vue 3 的组件库，你可以叫它 element3，也可以叫它 Ale （爱了）。
 
 ## 提交
@@ -7,7 +8,7 @@
 
 - 提交前请先拉取代码，以免产生不必要的冲突
 
-- 提交规范：`key: value`。比如：重构了 button 按钮 -> ` refactor: refactor button` 
+- 提交规范：`key: value`。比如：重构了 button 按钮 -> `refactor: refactor button`
 
 - `key` 可选 ：
 
@@ -58,11 +59,13 @@
 
 \- Pagination 分页
 
+\- Alert 警告
+
 ## 变化
 
-组件的前缀进行了修改：`el  ->  al`
+组件的前缀进行了修改：`el -> al`
 
-即：`el-button   ->  al-button`
+即：`el-button -> al-button`
 
 ## 运行与打包
 
@@ -73,7 +76,6 @@
 ## 更新计划（0.2.0）
 
 - 表格：table
-- 警告：Alert
 - 消息提示：Message
 - 弹框：MessageBox
 - 通知：Notification
