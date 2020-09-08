@@ -25,41 +25,43 @@
 
 ## 已移植组件
 
-\- Layout 布局
+\- 布局：Layout
 
-\- Container 布局容器
+\- 布局容器：Container
 
-\- Color 色彩
+\- 色彩：Color
 
-\- Typography 字体
+\- 字体：Typography
 
-\- Border 边框
+\- 边框：Border
 
-\- Icon 图标
+\- 图标：Icon
 
-\- Button 按钮
+\- 按钮：Button
 
-\- Link 文字链接
+\- 文字链接：Link
 
-\- Radio 单选框
+\- 单选框：Radio
 
-\- Checkbox 多选框
+\- 多选框：Checkbox
 
-\- Input 输入框
+\- 输入框：Input
 
-\- InputNumber 计数器
+\- 计数器：InputNumber
 
-\- Select 选择器
+\- 选择器：Select
 
-\- Switch 开关
+\- 开关：Switch
 
-\- Form 表单
+\- 表单：Form
 
-\- Tag 标签
+\- 标签：Tag
 
-\- Pagination 分页
+\- 分页：Pagination
 
-\- Alert 警告
+\- 警告：Alert
+
+\- 消息提示：Message
 
 ## 变化
 
@@ -76,7 +78,6 @@
 ## 更新计划（0.2.0）
 
 - 表格：table
-- 消息提示：Message
 - 弹框：MessageBox
 - 通知：Notification
 - 对话框：Dialog

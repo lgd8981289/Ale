@@ -36,10 +36,12 @@ const typeMap = {
 };
 
 const AlMessage = defineComponent({
+  name: 'AlMessage',
+  componentName: 'AlMessage',
   data() {
     return {
       visible: false,
-      message: '',
+      message: 'Test',
       duration: 3000,
       type: 'info',
       iconClass: '',
@@ -75,7 +77,7 @@ const AlMessage = defineComponent({
 
   methods: {
     handleAfterLeave() {
-      this.$destroy(true);
+      // this.$destroy(true);
       this.$el.parentNode.removeChild(this.$el);
     },
 

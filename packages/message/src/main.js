@@ -1,16 +1,23 @@
-import Main from './message.vue';
+import AlMessage from './message.vue';
+import { createApp } from 'vue';
 import { PopupManager } from '@utils/popup';
-import { isVNode } from '@utils/vdom';
-// let MessageConstructor = Vue.extend(Main);
+import { h } from 'vue';
 
-var shared = require('@vue/shared');
-let MessageConstructor = shared.extend(Main);
-
+let messageApp;
 let instance;
 let instances = [];
+let messageApps = [];
+let mountIds = [];
 let seed = 1;
+const TELEPORT_ID = 'al-message-mount-';
 
-const Message = function (options) {
+function createMountEle(id) {
+  const teleportDiv = document.createElement('div');
+  teleportDiv.setAttribute('id', TELEPORT_ID + id);
+  document.body.append(teleportDiv);
+}
+
+const Message = function(options) {
   // TODO: if (Vue.prototype.$isServer) return;
   options = options || {};
   if (typeof options === 'string') {
@@ -21,32 +28,43 @@ const Message = function (options) {
   let userOnClose = options.onClose;
   let id = 'message_' + seed++;
 
-  options.onClose = function () {
+  createMountEle(id);
+
+  options.onClose = function() {
     Message.close(id, userOnClose);
   };
-  instance = new MessageConstructor({
-    data: options
+  messageApp = createApp({
+    ...AlMessage,
+    data: function() {
+      return {
+        ...AlMessage.data(),
+        ...options
+      };
+    }
   });
+  instance = messageApp.mount('#' + TELEPORT_ID + id);
   instance.id = id;
-  if (isVNode(instance.message)) {
-    instance.$slots.default = [instance.message];
+  if (instance.message && instance.message.__v_isVNode) {
+    // instance.$slots.default = [instance.message];
     instance.message = null;
   }
-  instance.$mount();
+  // instance.$mount();
   document.body.appendChild(instance.$el);
   let verticalOffset = options.offset || 20;
-  instances.forEach((item) => {
+  instances.forEach(item => {
     verticalOffset += item.$el.offsetHeight + 16;
   });
   instance.verticalOffset = verticalOffset;
   instance.visible = true;
   instance.$el.style.zIndex = PopupManager.nextZIndex();
   instances.push(instance);
+  messageApps.push(messageApp);
+  mountIds.push(TELEPORT_ID + id);
   return instance;
 };
 
-['success', 'warning', 'info', 'error'].forEach((type) => {
-  Message[type] = (options) => {
+['success', 'warning', 'info', 'error'].forEach(type => {
+  Message[type] = options => {
     if (typeof options === 'string') {
       options = {
         message: options
@@ -57,10 +75,11 @@ const Message = function (options) {
   };
 });
 
-Message.close = function (id, userOnClose) {
+Message.close = function(id, userOnClose) {
   let len = instances.length;
   let index = -1;
   let removedHeight;
+  document.body.removeChild(document.getElementById(TELEPORT_ID + id));
   for (let i = 0; i < len; i++) {
     if (id === instances[i].id) {
       removedHeight = instances[i].$el.offsetHeight;
@@ -79,9 +98,10 @@ Message.close = function (id, userOnClose) {
   }
 };
 
-Message.closeAll = function () {
+Message.closeAll = function() {
   for (let i = instances.length - 1; i >= 0; i--) {
     instances[i].close();
+    messageApps[i].unmount();
   }
 };
 

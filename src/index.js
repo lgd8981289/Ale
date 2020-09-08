@@ -31,7 +31,7 @@ import AlFormItem from '@components/form-item/index';
 // import AlTable from '@components/table/index';
 // import AlTableColumn from '@components/table-column/index';
 import AlPagination from '@components/pagination/index';
-import AlMessage from '@components/message/index';
+import { AlMessage, message } from '@components/message/index';
 import AlDropdown from '../packages/dropdown/index.js';
 import AlDropdownMenu from '../packages/dropdown-menu/index.js';
 import AlDropdownItem from '../packages/dropdown-item/index.js';
@@ -84,9 +84,9 @@ const components = [
   AlPopover
 ];
 
-const install = function(Vue, opts = {}) {
+const install = function(app, opts = {}) {
   components.forEach(component => {
-    Vue.component(component.name, component);
+    app.component(component.name, component);
   });
 
   // TODO: 之后进行优化，可以通过 app.config.globalProperties 进行修正
@@ -99,8 +99,9 @@ const install = function(Vue, opts = {}) {
     zIndex: opts.zIndex || 2000
   };
 
-  Vue.directive('popover', popoverDirective);
-  Ale.Vue = Vue;
+  app.config.globalProperties.$message = message;
+
+  app.directive('popover', popoverDirective);
 };
 
 let Ale = {

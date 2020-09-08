@@ -11,10 +11,11 @@
 ```html
 <template>
   <al-button :plain="true" @click="open">打开消息提示</al-button>
-  <al-button :plain="true" @click="openVn">VNode</al-button>
+  <al-button :plain="true" @click="openVn">VNode（暂不可用）</al-button>
 </template>
 
 <script>
+  import { h } from 'vue';
   export default {
     methods: {
       open() {
@@ -22,7 +23,6 @@
       },
 
       openVn() {
-        const h = this.$createElement;
         this.$message({
           message: h('p', null, [
             h('span', null, '内容可以是 '),
