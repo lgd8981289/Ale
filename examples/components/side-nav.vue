@@ -62,6 +62,10 @@
           color: #409eff;
         }
       }
+
+      .complete {
+        color: #67c23a;
+      }
     }
 
     &.sponsors {
@@ -156,7 +160,7 @@
         <ul class="pure-menu-list sub-nav" v-if="item.children">
           <li class="nav-item" v-for="(navItem, key) in item.children" :key="key">
             <router-link
-              class=""
+              :class="{ complete: navItem.complete }"
               active-class="active"
               :to="base + navItem.path"
               exact
@@ -177,6 +181,7 @@
               >
                 <router-link
                   active-class="active"
+                  :class="{ complete: navItem.complete }"
                   :to="base + navItem.path"
                   exact
                   v-text="navItem.title"

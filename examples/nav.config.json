@@ -37,7 +37,8 @@
           "list": [
             {
               "path": "/layout",
-              "title": "Layout 布局（已完成）"
+              "title": "Layout 布局（已完成）",
+              "complete": true
             },
             {
               "path": "/container",
@@ -45,27 +46,33 @@
             },
             {
               "path": "/color",
-              "title": "Color 色彩（已完成）"
+              "title": "Color 色彩（已完成）",
+              "complete": true
             },
             {
               "path": "/typography",
-              "title": "Typography 字体（已完成）"
+              "title": "Typography 字体（已完成）",
+              "complete": true
             },
             {
               "path": "/border",
-              "title": "Border 边框（已完成）"
+              "title": "Border 边框（已完成）",
+              "complete": true
             },
             {
               "path": "/icon",
-              "title": "Icon 图标（已完成）"
+              "title": "Icon 图标（已完成）",
+              "complete": true
             },
             {
               "path": "/button",
-              "title": "Button 按钮（已完成）"
+              "title": "Button 按钮（已完成）",
+              "complete": true
             },
             {
               "path": "/link",
-              "title": "Link 文字链接（已完成）"
+              "title": "Link 文字链接（已完成）",
+              "complete": true
             }
           ]
         },
@@ -74,23 +81,28 @@
           "list": [
             {
               "path": "/radio",
-              "title": "Radio 单选框（已完成）"
+              "title": "Radio 单选框（已完成）",
+              "complete": true
             },
             {
               "path": "/checkbox",
-              "title": "Checkbox 多选框（已完成）"
+              "title": "Checkbox 多选框（已完成）",
+              "complete": true
             },
             {
               "path": "/input",
-              "title": "Input 输入框（已完成）"
+              "title": "Input 输入框（已完成）",
+              "complete": true
             },
             {
               "path": "/input-number",
-              "title": "InputNumber 计数器（已完成）"
+              "title": "InputNumber 计数器（已完成）",
+              "complete": true
             },
             {
               "path": "/select",
-              "title": "Select 选择器（已完成）"
+              "title": "Select 选择器（已完成）",
+              "complete": true
             },
             {
               "path": "/cascader",
@@ -98,7 +110,8 @@
             },
             {
               "path": "/switch",
-              "title": "Switch 开关（已完成）"
+              "title": "Switch 开关（已完成）",
+              "complete": true
             },
             {
               "path": "/slider",
@@ -114,7 +127,7 @@
             },
             {
               "path": "/datetime-picker",
-              "title": "DateTimePicker 日期时间选择器"
+              "title": "DateTimePicker 日期时间选择器（待完成）"
             },
             {
               "path": "/upload",
@@ -134,7 +147,8 @@
             },
             {
               "path": "/form",
-              "title": "Form 表单（已完成）"
+              "title": "Form 表单（已完成）",
+              "complete": true
             }
           ]
         },
@@ -147,7 +161,8 @@
             },
             {
               "path": "/tag",
-              "title": "Tag 标签（已完成）"
+              "title": "Tag 标签（已完成）",
+              "complete": true
             },
             {
               "path": "/progress",
@@ -159,7 +174,8 @@
             },
             {
               "path": "/pagination",
-              "title": "Pagination 分页（已完成）"
+              "title": "Pagination 分页（已完成）",
+              "complete": true
             },
             {
               "path": "/badge",
@@ -176,7 +192,8 @@
           "list": [
             {
               "path": "/alert",
-              "title": "Alert 警告（已完成）"
+              "title": "Alert 警告（已完成）",
+              "complete": true
             },
             {
               "path": "/loading",
@@ -184,15 +201,18 @@
             },
             {
               "path": "/message",
-              "title": "Message 消息提示（已完成）"
+              "title": "Message 消息提示（已完成）",
+              "complete": true
             },
             {
               "path": "/message-box",
-              "title": "MessageBox 弹框（已完成）"
+              "title": "MessageBox 弹框（已完成）",
+              "complete": true
             },
             {
               "path": "/notification",
-              "title": "Notification 通知（已完成）"
+              "title": "Notification 通知（已完成）",
+              "complete": true
             }
           ]
         },
