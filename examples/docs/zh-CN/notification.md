@@ -11,7 +11,7 @@
 ```html
 <template>
   <al-button plain @click="open1">
-    可自动关闭
+    可自动关闭（VNode 暂时无法解析）
   </al-button>
   <al-button plain @click="open2">
     不会自动关闭
@@ -19,11 +19,10 @@
 </template>
 
 <script>
+  import { h } from 'vue';
   export default {
     methods: {
       open1() {
-        const h = this.$createElement;
-
         this.$notify({
           title: '标题名称',
           message: h(

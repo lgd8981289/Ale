@@ -33,6 +33,7 @@ import AlFormItem from '@components/form-item/index';
 import AlPagination from '@components/pagination/index';
 import { AlMessage, message } from '@components/message/index';
 import { AlMessageBox, MessageBox } from '@components/message-box/index';
+import Notification from '@components/notification/index.js';
 import AlDropdown from '@components/dropdown/index.js';
 import AlDropdownMenu from '@components/dropdown-menu/index.js';
 import AlDropdownItem from '@components/dropdown-item/index.js';
@@ -106,6 +107,7 @@ const install = function(app, opts = {}) {
   app.config.globalProperties.$alert = MessageBox.alert;
   app.config.globalProperties.$confirm = MessageBox.confirm;
   app.config.globalProperties.$prompt = MessageBox.prompt;
+  app.config.globalProperties.$notify = Notification;
 
   app.directive('popover', popoverDirective);
 };
@@ -153,7 +155,8 @@ let Ale = {
   AlTolltip,
   AlBacktop,
   AlPopover,
-  message
+  message,
+  Notification
 };
 
 window.Ale = Ale;

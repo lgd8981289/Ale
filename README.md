@@ -63,6 +63,10 @@
 
 \- 消息提示：Message
 
+\- 弹框：MessageBox
+
+\- 通知：Notification
+
 ## 变化
 
 组件的前缀进行了修改：`el -> al`
@@ -78,8 +82,6 @@
 ## 更新计划（0.2.0）
 
 - 表格：table
-- 弹框：MessageBox
-- 通知：Notification
 - 对话框：Dialog
 - 导航组件：NavMenu
 - 标签页：Tabs
