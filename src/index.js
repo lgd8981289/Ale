@@ -32,14 +32,15 @@ import AlFormItem from '@components/form-item/index';
 // import AlTableColumn from '@components/table-column/index';
 import AlPagination from '@components/pagination/index';
 import { AlMessage, message } from '@components/message/index';
-import AlDropdown from '../packages/dropdown/index.js';
-import AlDropdownMenu from '../packages/dropdown-menu/index.js';
-import AlDropdownItem from '../packages/dropdown-item/index.js';
-import AlPopover from '../packages/popover/index.js';
-import AlDialog from '../packages/dialog/index.js';
-import AlTolltip from '../packages/tooltip/index.js';
-import AlBacktop from '../packages/backtop/index.js';
-import popoverDirective from '../packages/popover/src/directive.js';
+import { AlMessageBox, MessageBox } from '@components/message-box/index';
+import AlDropdown from '@components/dropdown/index.js';
+import AlDropdownMenu from '@components/dropdown-menu/index.js';
+import AlDropdownItem from '@components/dropdown-item/index.js';
+import AlPopover from '@components/popover/index.js';
+import AlDialog from '@components/dialog/index.js';
+import AlTolltip from '@components/tooltip/index.js';
+import AlBacktop from '@components/backtop/index.js';
+import popoverDirective from '@components/popover/src/directive.js';
 
 const components = [
   AlAlert,
@@ -75,6 +76,7 @@ const components = [
   // AlTableColumn,
   AlPagination,
   AlMessage,
+  AlMessageBox,
   AlDropdown,
   AlDropdownMenu,
   AlDropdownItem,
@@ -100,6 +102,10 @@ const install = function(app, opts = {}) {
   };
 
   app.config.globalProperties.$message = message;
+  app.config.globalProperties.$msgbox = MessageBox;
+  app.config.globalProperties.$alert = MessageBox.alert;
+  app.config.globalProperties.$confirm = MessageBox.confirm;
+  app.config.globalProperties.$prompt = MessageBox.prompt;
 
   app.directive('popover', popoverDirective);
 };
@@ -140,14 +146,14 @@ let Ale = {
   // AlTable,
   // AlTableColumn,
   AlPagination,
-  AlMessage,
   AlDropdown,
   AlDropdownMenu,
   AlDropdownItem,
   AlDialog,
   AlTolltip,
   AlBacktop,
-  AlPopover
+  AlPopover,
+  message
 };
 
 window.Ale = Ale;

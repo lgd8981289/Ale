@@ -119,7 +119,7 @@
 
 :::
 
-### 自定义
+### 自定义（暂不支持自定义 render）
 
 可自定义配置不同内容。
 
@@ -131,10 +131,10 @@
 </template>
 
 <script>
+  import { h } from 'vue';
   export default {
     methods: {
       open() {
-        const h = this.$createElement;
         this.$msgbox({
           title: '消息',
           message: h('p', null, [

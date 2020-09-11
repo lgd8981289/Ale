@@ -55,7 +55,7 @@ export default {
         return ['ascending', 'descending', null];
       },
       validator(val) {
-        return val.every((order) => ['ascending', 'descending', null].indexOf(order) > -1);
+        return val.every(order => ['ascending', 'descending', null].indexOf(order) > -1);
       }
     }
   },
@@ -105,7 +105,7 @@ export default {
     getPropsData(...props) {
       return props.reduce((prev, cur) => {
         if (Array.isArray(cur)) {
-          cur.forEach((key) => {
+          cur.forEach(key => {
             prev[key] = this[key];
           });
         }
@@ -135,7 +135,7 @@ export default {
       // 对于特定类型的 column，某些属性不允许设置
       const type = column.type;
       const source = cellForced[type] || {};
-      Object.keys(source).forEach((prop) => {
+      Object.keys(source).forEach(prop => {
         let value = source[prop];
         if (value !== undefined) {
           column[prop] = prop === 'className' ? `${column[prop]} ${value}` : value;
@@ -152,7 +152,7 @@ export default {
         );
       } else if (column.type !== 'selection') {
         column.renderHeader = (h, scope) => {
-          const renderHeader = this.$scopedSlots.header;
+          const renderHeader = this.$slots.header;
           return renderHeader ? renderHeader(scope) : column.label;
         };
       }
@@ -163,17 +163,15 @@ export default {
         // 对于展开行，renderCell 不允许配置的。在上一步中已经设置过，这里需要简单封装一下。
         column.renderCell = (h, data) => <div class="cell">{originRenderCell(h, data)}</div>;
         this.owner.renderExpanded = (h, data) => {
-          return this.$scopedSlots.default
-            ? this.$scopedSlots.default(data)
-            : this.$slots.default();
+          return this.$slots.default ? this.$slots.default(data) : this.$slots.default();
         };
       } else {
         originRenderCell = originRenderCell || defaultRenderCell;
         // 对 renderCell 进行包装
         column.renderCell = (h, data) => {
           let children = null;
-          if (this.$scopedSlots.default) {
-            children = this.$scopedSlots.default(data);
+          if (this.$slots.default) {
+            children = this.$slots.default(data);
           } else {
             children = originRenderCell(h, data);
           }
@@ -222,10 +220,10 @@ export default {
         return prev;
       }, aliases);
 
-      Object.keys(allAliases).forEach((key) => {
+      Object.keys(allAliases).forEach(key => {
         const columnKey = aliases[key];
 
-        this.$watch(key, (newVal) => {
+        this.$watch(key, newVal => {
           this.columnConfig[columnKey] = newVal;
         });
       });
@@ -242,10 +240,10 @@ export default {
         return prev;
       }, aliases);
 
-      Object.keys(allAliases).forEach((key) => {
+      Object.keys(allAliases).forEach(key => {
         const columnKey = aliases[key];
 
-        this.$watch(key, (newVal) => {
+        this.$watch(key, newVal => {
           this.columnConfig[columnKey] = newVal;
           const updateColumns = columnKey === 'fixed';
           this.owner.store.scheduleLayout(updateColumns);

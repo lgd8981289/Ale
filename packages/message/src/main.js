@@ -1,7 +1,7 @@
 import AlMessage from './message.vue';
 import { createApp } from 'vue';
 import { PopupManager } from '@utils/popup';
-import { h } from 'vue';
+import { isVNode } from '@utils/vdom';
 
 let messageApp;
 let instance;
@@ -9,11 +9,11 @@ let instances = [];
 let messageApps = [];
 let mountIds = [];
 let seed = 1;
-const TELEPORT_ID = 'al-message-mount-';
+const MOUNT_ID = 'al-message-mount-';
 
 function createMountEle(id) {
   const teleportDiv = document.createElement('div');
-  teleportDiv.setAttribute('id', TELEPORT_ID + id);
+  teleportDiv.setAttribute('id', MOUNT_ID + id);
   document.body.append(teleportDiv);
 }
 
@@ -42,9 +42,9 @@ const Message = function(options) {
       };
     }
   });
-  instance = messageApp.mount('#' + TELEPORT_ID + id);
+  instance = messageApp.mount('#' + MOUNT_ID + id);
   instance.id = id;
-  if (instance.message && instance.message.__v_isVNode) {
+  if (isVNode(instance.message)) {
     // instance.$slots.default = [instance.message];
     instance.message = null;
   }
@@ -59,7 +59,7 @@ const Message = function(options) {
   instance.$el.style.zIndex = PopupManager.nextZIndex();
   instances.push(instance);
   messageApps.push(messageApp);
-  mountIds.push(TELEPORT_ID + id);
+  mountIds.push(MOUNT_ID + id);
   return instance;
 };
 
@@ -79,7 +79,7 @@ Message.close = function(id, userOnClose) {
   let len = instances.length;
   let index = -1;
   let removedHeight;
-  document.body.removeChild(document.getElementById(TELEPORT_ID + id));
+  document.body.removeChild(document.getElementById(MOUNT_ID + id));
   for (let i = 0; i < len; i++) {
     if (id === instances[i].id) {
       removedHeight = instances[i].$el.offsetHeight;
