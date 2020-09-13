@@ -13,6 +13,7 @@ exports.alias = {
   '@mixins': resolvePath('./src/mixins'),
   '@utils': resolvePath('./src/utils'),
   '@locale': resolvePath('./src/locale'),
+  '@transitions': resolvePath('./src/transitions'),
   '@components': resolvePath('./packages'),
   '@directives': resolvePath('./src/directives'),
   '@form': resolvePath('./packages/form/src')

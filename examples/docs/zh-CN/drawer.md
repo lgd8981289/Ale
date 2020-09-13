@@ -107,10 +107,10 @@
 >
   <div class="demo-drawer__content">
     <al-form :model="form">
-      <al-form-item label="活动名称" :labal-width="formLabelWidth">
+      <al-form-item label="活动名称" :label-width="formLabelWidth">
         <al-input v-model="form.name" autocomplete="off"></al-input>
       </al-form-item>
-      <al-form-item label="活动区域" :labal-width="formLabelWidth">
+      <al-form-item label="活动区域" :label-width="formLabelWidth">
         <al-select v-model="form.region" placeholder="请选择活动区域">
           <al-option label="区域一" value="shanghai"></al-option>
           <al-option label="区域二" value="beijing"></al-option>

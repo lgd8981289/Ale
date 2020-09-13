@@ -61,7 +61,7 @@ const AlRadioButton = defineComponent({
     /**
      * Radio 的 value
      */
-    label: [String, Number],
+    label: {},
     /**
      * 是否禁用
      */

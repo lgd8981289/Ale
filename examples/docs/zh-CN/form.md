@@ -9,7 +9,7 @@
 :::demo 在 Form 组件中，每一个表单域由一个 Form-Item 组件构成，表单域中可以放置各种类型的表单控件，包括 Input、Select、Checkbox、Radio、Switch、DatePicker、TimePicker
 
 ```html
-<al-form ref="form" :model="form" labal-width="80px">
+<al-form ref="form" :model="form" label-width="80px">
   <al-form-item label="活动名称">
     <al-input v-model="form.name"></al-input>
   </al-form-item>
@@ -143,7 +143,7 @@ W3C 标准中有如下[规定](https://www.w3.org/MarkUp/html-spec/html-spec_8.h
 
 根据具体目标和制约因素，选择最佳的标签对齐方式。
 
-:::demo 通过设置 `labal-position` 属性可以改变表单域标签的位置，可选值为 `top`、`left`，当设为 `top` 时标签会置于表单域的顶部
+:::demo 通过设置 `label-position` 属性可以改变表单域标签的位置，可选值为 `top`、`left`，当设为 `top` 时标签会置于表单域的顶部
 
 ```html
 <al-radio-group v-model="labelPosition" size="small">
@@ -152,7 +152,7 @@ W3C 标准中有如下[规定](https://www.w3.org/MarkUp/html-spec/html-spec_8.h
   <al-radio-button label="top">顶部对齐</al-radio-button>
 </al-radio-group>
 <div style="margin: 20px;"></div>
-<al-form :labal-position="labelPosition" labal-width="80px" :model="formLabelAlign">
+<al-form :label-position="labelPosition" label-width="80px" :model="formLabelAlign">
   <al-form-item label="名称">
     <al-input v-model="formLabelAlign.name"></al-input>
   </al-form-item>
@@ -188,7 +188,7 @@ W3C 标准中有如下[规定](https://www.w3.org/MarkUp/html-spec/html-spec_8.h
 :::demo Form 组件提供了表单验证的功能，只需要通过 `rules` 属性传入约定的验证规则，并将 Form-Item 的 `prop` 属性设置为需校验的字段名即可。校验规则参见 [async-validator](https://github.com/yiminghe/async-validator)
 
 ```html
-<al-form :model="ruleForm" :rules="rules" ref="ruleForm" labal-width="100px" class="demo-ruleForm">
+<al-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
   <al-form-item label="活动名称" prop="name">
     <al-input v-model="ruleForm.name"></al-input>
   </al-form-item>
@@ -308,7 +308,7 @@ W3C 标准中有如下[规定](https://www.w3.org/MarkUp/html-spec/html-spec_8.h
   status-icon
   :rules="rules"
   ref="ruleForm"
-  labal-width="100px"
+  label-width="100px"
   class="demo-ruleForm"
 >
   <al-form-item label="密码" prop="pass">
@@ -409,7 +409,7 @@ W3C 标准中有如下[规定](https://www.w3.org/MarkUp/html-spec/html-spec_8.h
 <al-form
   :model="dynamicValidateForm"
   ref="dynamicValidateForm"
-  labal-width="100px"
+  label-width="100px"
   class="demo-dynamic"
 >
   <al-form-item
@@ -495,7 +495,7 @@ W3C 标准中有如下[规定](https://www.w3.org/MarkUp/html-spec/html-spec_8.h
 <al-form
   :model="numberValidateForm"
   ref="numberValidateForm"
-  labal-width="100px"
+  label-width="100px"
   class="demo-ruleForm"
 >
   <al-form-item
@@ -544,7 +544,7 @@ W3C 标准中有如下[规定](https://www.w3.org/MarkUp/html-spec/html-spec_8.h
 :::
 
 :::tip
-嵌套在 `al-form-item` 中的 `al-form-item` 标签宽度默认为零，不会继承 `al-form` 的 `labal-width`。如果需要可以为其单独设置 `labal-width` 属性。
+嵌套在 `al-form-item` 中的 `al-form-item` 标签宽度默认为零，不会继承 `al-form` 的 `label-width`。如果需要可以为其单独设置 `label-width` 属性。
 :::
 
 ### 表单内组件尺寸控制
@@ -554,7 +554,7 @@ W3C 标准中有如下[规定](https://www.w3.org/MarkUp/html-spec/html-spec_8.h
 :::demo 如果希望某个表单项或某个表单组件的尺寸不同于 Form 上的`size`属性，直接为这个表单项或表单组件设置自己的`size`即可。
 
 ```html
-<al-form ref="form" :model="sizeForm" labal-width="80px" size="mini">
+<al-form ref="form" :model="sizeForm" label-width="80px" size="mini">
   <al-form-item label="活动名称">
     <al-input v-model="sizeForm.name"></al-input>
   </al-form-item>
@@ -635,9 +635,9 @@ W3C 标准中有如下[规定](https://www.w3.org/MarkUp/html-spec/html-spec_8.h
 | model                   | 表单数据对象                                                                              | object  | —                     | —      |
 | rules                   | 表单验证规则                                                                              | object  | —                     | —      |
 | inline                  | 行内表单模式                                                                              | boolean | —                     | false  |
-| labal-position          | 表单域标签的位置，如果值为 left 或者 right 时，则需要设置 `labal-width`                   | string  | right/left/top        | right  |
-| labal-width             | 表单域标签的宽度，例如 '50px'。作为 Form 直接子元素的 form-item 会继承该值。支持 `auto`。 | string  | —                     | —      |
-| labal-suffix            | 表单域标签的后缀                                                                          | string  | —                     | —      |
+| label-position          | 表单域标签的位置，如果值为 left 或者 right 时，则需要设置 `label-width`                   | string  | right/left/top        | right  |
+| label-width             | 表单域标签的宽度，例如 '50px'。作为 Form 直接子元素的 form-item 会继承该值。支持 `auto`。 | string  | —                     | —      |
+| label-suffix            | 表单域标签的后缀                                                                          | string  | —                     | —      |
 | hide-required-asterisk  | 是否显示必填字段的标签旁边的红色星号                                                      | boolean | —                     | false  |
 | show-message            | 是否显示校验错误信息                                                                      | boolean | —                     | true   |
 | inline-message          | 是否以行内形式展示校验信息                                                                | boolean | —                     | false  |
@@ -667,7 +667,7 @@ W3C 标准中有如下[规定](https://www.w3.org/MarkUp/html-spec/html-spec_8.h
 | -------------- | ---------------------------------------------------------------------------- | ------- | --------------------------------- | ------ |
 | prop           | 表单域 model 字段，在使用 validate、resetFields 方法的情况下，该属性是必填的 | string  | 传入 Form 组件的 `model` 中的字段 | —      |
 | label          | 标签文本                                                                     | string  | —                                 | —      |
-| labal-width    | 表单域标签的的宽度，例如 '50px'。支持 `auto`。                               | string  | —                                 | —      |
+| label-width    | 表单域标签的的宽度，例如 '50px'。支持 `auto`。                               | string  | —                                 | —      |
 | required       | 是否必填，如不设置，则会根据校验规则自动生成                                 | boolean | —                                 | false  |
 | rules          | 表单验证规则                                                                 | object  | —                                 | —      |
 | error          | 表单域验证错误信息, 设置该值会使表单验证状态变为`error`，并显示该错误信息    | string  | —                                 | —      |

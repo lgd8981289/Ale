@@ -1,6 +1,7 @@
 import { addClass, removeClass } from '@utils/dom';
+import { h, Transition } from 'vue';
 
-class Transition {
+class AlTransition {
   beforeEnter(el) {
     addClass(el, 'collapse-transition');
     if (!el.dataset) el.dataset = {};
@@ -65,13 +66,14 @@ class Transition {
 }
 
 export default {
-  name: 'ElCollapseTransition',
+  name: 'AlCollapseTransition',
   functional: true,
-  render(h, { children }) {
+  render() {
     const data = {
-      on: new Transition()
+      on: new AlTransition()
     };
 
-    return h('transition', data, children);
+    return h(Transition, data, this.$slots.default());
+    // return <Transition v-bind={data}>{this.$slots.default()}</Transition>;
   }
 };

@@ -42,6 +42,10 @@ import AlDialog from '@components/dialog/index.js';
 import AlTolltip from '@components/tooltip/index.js';
 import AlBacktop from '@components/backtop/index.js';
 import popoverDirective from '@components/popover/src/directive.js';
+import Menu from '@components/menu/index.js';
+import Submenu from '@components/submenu/index.js';
+import MenuItem from '@components/menu-item/index.js';
+import MenuItemGroup from '@components/menu-item-group/index.js';
 
 const components = [
   AlAlert,
@@ -84,7 +88,11 @@ const components = [
   AlDialog,
   AlTolltip,
   AlBacktop,
-  AlPopover
+  AlPopover,
+  Menu,
+  Submenu,
+  MenuItem,
+  MenuItemGroup
 ];
 
 const install = function(app, opts = {}) {
@@ -156,7 +164,11 @@ let Ale = {
   AlBacktop,
   AlPopover,
   message,
-  Notification
+  Notification,
+  Menu,
+  Submenu,
+  MenuItem,
+  MenuItemGroup
 };
 
 window.Ale = Ale;
