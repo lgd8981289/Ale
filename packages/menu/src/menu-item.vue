@@ -15,7 +15,7 @@
     @mouseleave="onMouseLeave"
   >
     <al-tooltip
-      v-if="parentMenu.$options.componentName === 'AlMenu' && rootMenu.collapse && $slots.title"
+      v-if="parentMenu.$options.componentName === 'ElMenu' && rootMenu.collapse && $slots.title"
       effect="dark"
       placement="right"
     >
@@ -36,7 +36,7 @@
 import Menu from './menu-mixin';
 import AlTooltip from '@components/tooltip';
 import { $alEmit } from '@mixins/emitter';
-import { inject } from 'vue';
+import { inject, h } from 'vue';
 
 function initMitt() {
   const alMenuItemClickSymbol = inject('alMenuItem-clickSymbol', Symbol());
@@ -68,6 +68,9 @@ export default {
     return {
       ...initMitt()
     };
+  },
+  render() {
+    return h('div', {}, [h('h3', {}, this.$parent.$options.name), 'al-menu-item']);
   },
   computed: {
     active() {
@@ -123,6 +126,7 @@ export default {
     }
   },
   mounted() {
+    console.log(this.$parent.$options.name);
     this.parentMenu.addItem(this);
     this.rootMenu.addItem(this);
   },

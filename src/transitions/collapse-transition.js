@@ -73,7 +73,8 @@ export default {
       on: new AlTransition()
     };
 
-    return h(Transition, data, this.$slots.default());
+    return h('div', data, this.$slots.default());
+    // return h(Transition, data, this.$slots.default());
     // return <Transition v-bind={data}>{this.$slots.default()}</Transition>;
   }
 };

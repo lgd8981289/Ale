@@ -3,8 +3,9 @@
 import { $alEmit, $alOn } from '@mixins/emitter';
 import Migrating from '@mixins/migrating';
 import Menubar from '@utils/menu/aria-menubar';
-import { addClass, removeClass, hasClass } from '@utils/dom';
-import {h, inject, provide, watch, Transition} from 'vue';
+import AlMenuCollapseTransition from './menu-collapse-transition';
+import {h, inject, provide, watch} from 'vue';
+
 
 function initMitt () {
   const alSubmenuToggleCollapseSymbol = inject('alSubmenu-toggleCollapseSymbol', Symbol(''));
@@ -21,13 +22,8 @@ function initMitt () {
   }
 }
 
-function getSlot () {
-  return <h1>123</h1>
-}
-
-export default {
+const AlMenu = {
   name: 'AlMenu',
-
   render () {
     const component = (
       <ul
@@ -47,12 +43,29 @@ export default {
     if (this.collapseTransition) {
       return (
         <al-menu-collapse-transition>
-         { component }
+          { component }
         </al-menu-collapse-transition>
       );
     } else {
-      return component;
+      return component
     }
+
+    // const component = h('ul', {
+    //   role: 'menubar',
+    //   key: +this.collapse,
+    //   style: { backgroundColor: this.backgroundColor || '' },
+    //   class: {
+    //       'al-menu--horizontal': this.mode === 'horizontal',
+    //       'al-menu--collapse': this.collapse,
+    //       "al-menu": true
+    //     },
+    // }, this.$slots.default())
+    // if (this.collapseTransition) {
+    //   return h(alMenuCollapseTransition,{},component)
+    // } else {
+    //   return component
+    // }
+
   },
 
   componentName: 'AlMenu',
@@ -78,61 +91,7 @@ export default {
   },
 
   components: {
-    'al-menu-collapse-transition': {
-      functional: true,
-      render () {
-        const data = {
-          props: {
-            mode: 'out-in'
-          },
-          on: {
-            beforeEnter(el) {
-              el.style.opacity = 0.2;
-            },
-
-            enter(el) {
-              addClass(el, 'al-opacity-transition');
-              el.style.opacity = 1;
-            },
-
-            afterEnter(el) {
-              removeClass(el, 'al-opacity-transition');
-              el.style.opacity = '';
-            },
-
-            beforeLeave(el) {
-              if (!el.dataset) el.dataset = {};
-
-              if (hasClass(el, 'al-menu--collapse')) {
-                removeClass(el, 'al-menu--collapse');
-                el.dataset.oldOverflow = el.style.overflow;
-                el.dataset.scrollWidth = el.clientWidth;
-                addClass(el, 'al-menu--collapse');
-              } else {
-                addClass(el, 'al-menu--collapse');
-                el.dataset.oldOverflow = el.style.overflow;
-                el.dataset.scrollWidth = el.clientWidth;
-                removeClass(el, 'al-menu--collapse');
-              }
-
-              el.style.width = el.scrollWidth + 'px';
-              el.style.overflow = 'hidden';
-            },
-
-            leave(el) {
-              addClass(el, 'horizontal-collapse-transition');
-              el.style.width = el.dataset.scrollWidth + 'px';
-            }
-          }
-        };
-        return h(Transition, data, this.$slots.default)
-        // return (
-        //   <Transition  v-bind={data}>
-        //     {this.$slots.default()}
-        //   </Transition>
-        // )
-      }
-    }
+    'al-menu-collapse-transition': AlMenuCollapseTransition
   },
 
   props: {
@@ -191,9 +150,11 @@ export default {
     },
 
     collapse(value) {
-      if (value) this.openedMenus = [];
+      if (value) {
+        this.openedMenus = [];
+      }
       // this.broadcast('ElSubmenu', 'toggle-collapse', value);
-$alEmit(this.alSubmenuToggleCollapseSymbol, value);
+      $alEmit(this.alSubmenuToggleCollapseSymbol, value);
     }
   },
   methods: {
@@ -364,5 +325,7 @@ $alEmit(this.alSubmenuToggleCollapseSymbol, value);
     }
     this.$watch('items', this.updateActiveIndex);
   }
-};
+}
+
+export default AlMenu;
 </script>

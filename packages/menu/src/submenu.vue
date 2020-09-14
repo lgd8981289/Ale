@@ -302,24 +302,24 @@ export default {
     } = this;
 
     const popupMenu = (
-      <Transition name={menuTransitionName}>
-        <div
-          ref="menu"
-          v-show={opened}
-          class={[`al-menu--${mode}`, popperClass]}
-          on-mouseenter={$event => this.handleMouseenter($event, 100)}
-          on-mouseleave={() => this.handleMouseleave(true)}
-          on-focus={$event => this.handleMouseenter($event, 100)}
+      // <transition name={menuTransitionName}>
+      <div
+        ref="menu"
+        v-show={opened}
+        class={[`al-menu--${mode}`, popperClass]}
+        onmouseenter={$event => this.handleMouseenter($event, 100)}
+        onmouseleave={() => this.handleMouseleave(true)}
+        onfocus={$event => this.handleMouseenter($event, 100)}
+      >
+        <ul
+          role="menu"
+          class={['al-menu al-menu--popup', `al-menu--popup-${currentPlacement}`]}
+          style={{ backgroundColor: rootMenu.backgroundColor || '' }}
         >
-          <ul
-            role="menu"
-            class={['al-menu al-menu--popup', `al-menu--popup-${currentPlacement}`]}
-            style={{ backgroundColor: rootMenu.backgroundColor || '' }}
-          >
-            {$slots.default}
-          </ul>
-        </div>
-      </Transition>
+          {$slots.default()}
+        </ul>
+      </div>
+      // </transition>
     );
 
     const inlineMenu = (
@@ -330,7 +330,7 @@ export default {
           v-show={opened}
           style={{ backgroundColor: rootMenu.backgroundColor || '' }}
         >
-          {$slots.default}
+          {$slots.default()}
         </ul>
       </al-collapse-transition>
     );
@@ -352,19 +352,19 @@ export default {
         role="menuitem"
         aria-haspopup="true"
         aria-expanded={opened}
-        on-mouseenter={this.handleMouseenter}
-        on-mouseleave={() => this.handleMouseleave(false)}
-        on-focus={this.handleMouseenter}
+        onmouseenter={this.handleMouseenter}
+        onmouseleave={() => this.handleMouseleave(false)}
+        onfocus={this.handleMouseenter}
       >
         <div
           class="al-submenu__title"
           ref="submenu-title"
-          on-click={this.handleClick}
-          on-mouseenter={this.handleTitleMouseenter}
-          on-mouseleave={this.handleTitleMouseleave}
+          onclick={this.handleClick}
+          onmouseenter={this.handleTitleMouseenter}
+          onmouseleave={this.handleTitleMouseleave}
           style={[paddingStyle, titleStyle, { backgroundColor }]}
         >
-          {$slots.title}
+          {$slots.title()}
           <i class={['al-submenu__icon-arrow', submenuTitleIcon]}></i>
         </div>
         {this.isMenuPopup ? popupMenu : inlineMenu}

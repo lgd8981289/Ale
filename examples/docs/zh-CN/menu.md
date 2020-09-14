@@ -17,12 +17,12 @@
 >
   <al-menu-item index="1">处理中心</al-menu-item>
   <al-submenu index="2">
-    <template slot="title">我的工作台</template>
+    <template v-slot:title>我的工作台</template>
     <al-menu-item index="2-1">选项1</al-menu-item>
     <al-menu-item index="2-2">选项2</al-menu-item>
     <al-menu-item index="2-3">选项3</al-menu-item>
     <al-submenu index="2-4">
-      <template slot="title">选项4</template>
+      <template v-slot:title>选项4</template>
       <al-menu-item index="2-4-1">选项1</al-menu-item>
       <al-menu-item index="2-4-2">选项2</al-menu-item>
       <al-menu-item index="2-4-3">选项3</al-menu-item>
