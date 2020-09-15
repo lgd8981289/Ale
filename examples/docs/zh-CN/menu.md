@@ -43,12 +43,12 @@
 >
   <al-menu-item index="1">处理中心</al-menu-item>
   <al-submenu index="2">
-    <template slot="title">我的工作台</template>
+    <template v-slot:title>我的工作台</template>
     <al-menu-item index="2-1">选项1</al-menu-item>
     <al-menu-item index="2-2">选项2</al-menu-item>
     <al-menu-item index="2-3">选项3</al-menu-item>
     <al-submenu index="2-4">
-      <template slot="title">选项4</template>
+      <template v-slot:title>选项4</template>
       <al-menu-item index="2-4-1">选项1</al-menu-item>
       <al-menu-item index="2-4-2">选项2</al-menu-item>
       <al-menu-item index="2-4-3">选项3</al-menu-item>
@@ -94,12 +94,12 @@
       @close="handleClose"
     >
       <al-submenu index="1">
-        <template slot="title">
+        <template v-slot:title>
           <i class="al-icon-location"></i>
           <span>导航一</span>
         </template>
         <al-menu-item-group>
-          <template slot="title">分组一</template>
+          <template v-slot:title>分组一</template>
           <al-menu-item index="1-1">选项1</al-menu-item>
           <al-menu-item index="1-2">选项2</al-menu-item>
         </al-menu-item-group>
@@ -107,21 +107,27 @@
           <al-menu-item index="1-3">选项3</al-menu-item>
         </al-menu-item-group>
         <al-submenu index="1-4">
-          <template slot="title">选项4</template>
+          <template v-slot:title>选项4</template>
           <al-menu-item index="1-4-1">选项1</al-menu-item>
         </al-submenu>
       </al-submenu>
       <al-menu-item index="2">
         <i class="al-icon-menu"></i>
-        <span slot="title">导航二</span>
+        <template v-slot:title>
+          <span>导航二</span>
+        </template>
       </al-menu-item>
       <al-menu-item index="3" disabled>
         <i class="al-icon-document"></i>
-        <span slot="title">导航三</span>
+        <template v-slot:title>
+          <span>导航三</span>
+        </template>
       </al-menu-item>
       <al-menu-item index="4">
         <i class="al-icon-setting"></i>
-        <span slot="title">导航四</span>
+        <template v-slot:title>
+          <span>导航四</span>
+        </template>
       </al-menu-item>
     </al-menu>
   </al-col>
@@ -137,12 +143,12 @@
       active-text-color="#ffd04b"
     >
       <al-submenu index="1">
-        <template slot="title">
+        <template v-slot:title>
           <i class="al-icon-location"></i>
           <span>导航一</span>
         </template>
         <al-menu-item-group>
-          <template slot="title">分组一</template>
+          <template v-slot:title>分组一</template>
           <al-menu-item index="1-1">选项1</al-menu-item>
           <al-menu-item index="1-2">选项2</al-menu-item>
         </al-menu-item-group>
@@ -150,21 +156,27 @@
           <al-menu-item index="1-3">选项3</al-menu-item>
         </al-menu-item-group>
         <al-submenu index="1-4">
-          <template slot="title">选项4</template>
+          <template v-slot:title>选项4</template>
           <al-menu-item index="1-4-1">选项1</al-menu-item>
         </al-submenu>
       </al-submenu>
       <al-menu-item index="2">
         <i class="al-icon-menu"></i>
-        <span slot="title">导航二</span>
+        <template v-slot:title>
+          <span>导航二</span>
+        </template>
       </al-menu-item>
       <al-menu-item index="3" disabled>
         <i class="al-icon-document"></i>
-        <span slot="title">导航三</span>
+        <template v-slot:title>
+          <span>导航三</span>
+        </template>
       </al-menu-item>
       <al-menu-item index="4">
         <i class="al-icon-setting"></i>
-        <span slot="title">导航四</span>
+        <template v-slot:title>
+          <span>导航四</span>
+        </template>
       </al-menu-item>
     </al-menu>
   </al-col>
@@ -188,7 +200,7 @@
 
 ### 折叠
 
-:::demo
+:::demo 折叠功能实现
 
 ```html
 <al-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
@@ -203,12 +215,14 @@
   :collapse="isCollapse"
 >
   <al-submenu index="1">
-    <template slot="title">
+    <template v-slot:title>
       <i class="al-icon-location"></i>
-      <span slot="title">导航一</span>
+      <span>导航一</span>
     </template>
     <al-menu-item-group>
-      <span slot="title">分组一</span>
+      <template v-slot:title>
+        <span>分组一</span>
+      </template>
       <al-menu-item index="1-1">选项1</al-menu-item>
       <al-menu-item index="1-2">选项2</al-menu-item>
     </al-menu-item-group>
@@ -216,21 +230,29 @@
       <al-menu-item index="1-3">选项3</al-menu-item>
     </al-menu-item-group>
     <al-submenu index="1-4">
-      <span slot="title">选项4</span>
+      <template v-slot:title>
+        <span>选项4</span>
+      </template>
       <al-menu-item index="1-4-1">选项1</al-menu-item>
     </al-submenu>
   </al-submenu>
   <al-menu-item index="2">
     <i class="al-icon-menu"></i>
-    <span slot="title">导航二</span>
+    <template v-slot:title>
+      <span>导航二</span>
+    </template>
   </al-menu-item>
   <al-menu-item index="3" disabled>
     <i class="al-icon-document"></i>
-    <span slot="title">导航三</span>
+    <template v-slot:title>
+      <span>导航三</span>
+    </template>
   </al-menu-item>
   <al-menu-item index="4">
     <i class="al-icon-setting"></i>
-    <span slot="title">导航四</span>
+    <template v-slot:title>
+      <span>导航四</span>
+    </template>
   </al-menu-item>
 </al-menu>
 

@@ -14,7 +14,9 @@ import { inject } from 'vue';
 
 function initInject() {
   const rootMenu = inject('rootMenu');
-  return rootMenu;
+  return {
+    rootMenu
+  };
 }
 
 export default {
