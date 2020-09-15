@@ -221,7 +221,8 @@
           "list": [
             {
               "path": "/menu",
-              "title": "NavMenu 导航菜单（待完成）"
+              "title": "NavMenu 导航菜单（已完成）",
+              "complete": true
             },
             {
               "path": "/tabs",

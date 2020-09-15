@@ -126,7 +126,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$parent.$options.name);
     this.parentMenu.addItem(this);
     this.rootMenu.addItem(this);
   },

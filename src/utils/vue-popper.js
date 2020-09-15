@@ -3,7 +3,7 @@ import { nextTick } from 'vue';
 // TODO: Vue 不再是一个函数，无法获取到 $isServer ，判断 SSR 方法暂未确定！
 // const PopperJS = Vue.prototype.$isServer ? function () {} : require('./popper');
 // const PopperJS = require('./popper');
-const stop = (e) => e.stopPropagation();
+const stop = e => e.stopPropagation();
 
 const PopperJS = require('./popper');
 
@@ -109,7 +109,7 @@ export default {
       options.offset = this.offset;
       options.arrowOffset = this.arrowOffset;
       this.popperJS = new PopperJS(reference, popper, options);
-      this.popperJS.onCreate(async (_) => {
+      this.popperJS.onCreate(async _ => {
         this.$emit('created', this);
         this.resetTransformOrigin();
         await nextTick();

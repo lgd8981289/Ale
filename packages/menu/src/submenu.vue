@@ -3,7 +3,7 @@ import AlCollapseTransition from '@transitions/collapse-transition';
 import menuMixin from './menu-mixin';
 import Popper from '@utils/vue-popper';
 import { $alEmit, $alOn } from '@mixins/emitter';
-import { nextTick, inject, h, Transition } from 'vue';
+import { nextTick, inject, h, BaseTransition } from 'vue';
 const poperMixins = {
   props: {
     transformOrigin: {
@@ -302,24 +302,24 @@ export default {
     } = this;
 
     const popupMenu = (
-      // <transition name={menuTransitionName}>
-      <div
-        ref="menu"
-        v-show={opened}
-        class={[`al-menu--${mode}`, popperClass]}
-        onmouseenter={$event => this.handleMouseenter($event, 100)}
-        onmouseleave={() => this.handleMouseleave(true)}
-        onfocus={$event => this.handleMouseenter($event, 100)}
-      >
-        <ul
-          role="menu"
-          class={['al-menu al-menu--popup', `al-menu--popup-${currentPlacement}`]}
-          style={{ backgroundColor: rootMenu.backgroundColor || '' }}
+      <BaseTransition name={menuTransitionName}>
+        <div
+          ref="menu"
+          v-show={opened}
+          class={[`al-menu--${mode}`, popperClass]}
+          onmouseenter={$event => this.handleMouseenter($event, 100)}
+          onmouseleave={() => this.handleMouseleave(true)}
+          onfocus={$event => this.handleMouseenter($event, 100)}
         >
-          {$slots.default()}
-        </ul>
-      </div>
-      // </transition>
+          <ul
+            role="menu"
+            class={['al-menu al-menu--popup', `al-menu--popup-${currentPlacement}`]}
+            style={{ backgroundColor: rootMenu.backgroundColor || '' }}
+          >
+            {$slots.default()}
+          </ul>
+        </div>
+      </BaseTransition>
     );
 
     const inlineMenu = (

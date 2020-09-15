@@ -67,6 +67,8 @@
 
 \- 通知：Notification
 
+\- 导航组件：NavMenu
+
 ## 变化
 
 组件的前缀进行了修改：`el -> al`
@@ -83,7 +85,6 @@
 
 - 表格：table
 - 对话框：Dialog
-- 导航组件：NavMenu
 - 标签页：Tabs
 - 面包屑：Breadcrumb
 

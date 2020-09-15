@@ -14,10 +14,8 @@ export default {
     },
     parentMenu() {
       let parent = this.$parent;
-      console.log('test: 获取父元素 : ' + parent.$options.name);
 
       while (parent && ['AlMenu', 'AlSubmenu'].indexOf(parent.$options.name) === -1) {
-        console.log(parent.$options.name);
         parent = parent.$parent;
       }
       return parent;

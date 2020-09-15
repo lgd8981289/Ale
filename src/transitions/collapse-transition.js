@@ -1,5 +1,5 @@
 import { addClass, removeClass } from '@utils/dom';
-import { h, Transition } from 'vue';
+import { h, BaseTransition } from 'vue';
 
 class AlTransition {
   beforeEnter(el) {
@@ -72,9 +72,7 @@ export default {
     const data = {
       on: new AlTransition()
     };
-
-    return h('div', data, this.$slots.default());
-    // return h(Transition, data, this.$slots.default());
-    // return <Transition v-bind={data}>{this.$slots.default()}</Transition>;
+    // TODO: transition 无效
+    return h(BaseTransition, data, this.$slots.default);
   }
 };

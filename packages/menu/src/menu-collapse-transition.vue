@@ -1,6 +1,6 @@
 <script>
 import { addClass, removeClass, hasClass } from '@utils/dom';
-import { h, Transition } from 'vue';
+import { h, Transition, BaseTransition } from 'vue';
 export default {
   name: 'AlMenuCollapseTransition',
   functional: true,
@@ -15,28 +15,28 @@ export default {
         },
 
         enter(el) {
-          addClass(el, 'al-opacity-transition');
+          addClass(el, 'el-opacity-transition');
           el.style.opacity = 1;
         },
 
         afterEnter(el) {
-          removeClass(el, 'al-opacity-transition');
+          removeClass(el, 'el-opacity-transition');
           el.style.opacity = '';
         },
 
         beforeLeave(el) {
           if (!el.dataset) el.dataset = {};
 
-          if (hasClass(el, 'al-menu--collapse')) {
-            removeClass(el, 'al-menu--collapse');
+          if (hasClass(el, 'el-menu--collapse')) {
+            removeClass(el, 'el-menu--collapse');
             el.dataset.oldOverflow = el.style.overflow;
             el.dataset.scrollWidth = el.clientWidth;
-            addClass(el, 'al-menu--collapse');
+            addClass(el, 'el-menu--collapse');
           } else {
-            addClass(el, 'al-menu--collapse');
+            addClass(el, 'el-menu--collapse');
             el.dataset.oldOverflow = el.style.overflow;
             el.dataset.scrollWidth = el.clientWidth;
-            removeClass(el, 'al-menu--collapse');
+            removeClass(el, 'el-menu--collapse');
           }
 
           el.style.width = el.scrollWidth + 'px';
@@ -49,8 +49,9 @@ export default {
         }
       }
     };
-    // return h(Transition, data, this.$slots.default());
-    return h('div', data, this.$slots.default());
+    // TODO: transition 无效
+    return h(BaseTransition, data, this.$slots.default);
+    // return Transition(data, { slots: this.$slots.default });
   }
 };
 </script>

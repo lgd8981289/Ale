@@ -39,7 +39,6 @@ const AlMenu = {
         {this.$slots.default()}
       </ul>
     );
-
     if (this.collapseTransition) {
       return (
         <al-menu-collapse-transition>
