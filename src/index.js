@@ -46,6 +46,8 @@ import Menu from '@components/menu/index.js';
 import Submenu from '@components/submenu/index.js';
 import MenuItem from '@components/menu-item/index.js';
 import MenuItemGroup from '@components/menu-item-group/index.js';
+import Tabs from '@components/tabs/index.js';
+import TabPane from '@components/tab-pane/index.js';
 
 const components = [
   AlAlert,
@@ -92,7 +94,9 @@ const components = [
   Menu,
   Submenu,
   MenuItem,
-  MenuItemGroup
+  MenuItemGroup,
+  Tabs,
+  TabPane
 ];
 
 const install = function(app, opts = {}) {
@@ -168,7 +172,9 @@ let Ale = {
   Menu,
   Submenu,
   MenuItem,
-  MenuItemGroup
+  MenuItemGroup,
+  Tabs,
+  TabPane
 };
 
 window.Ale = Ale;
