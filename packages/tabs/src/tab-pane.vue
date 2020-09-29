@@ -68,7 +68,15 @@ export default {
   },
 
   mounted() {
-    this.index = this.pIndex;
+    // this.index = this.pIndex;
+  },
+  watch: {
+    pIndex: {
+      handler(val) {
+        this.index = val;
+      },
+      immediate: true
+    }
   },
   updated() {
     // $alEmit(this.alTabNavUpdateSymbol);

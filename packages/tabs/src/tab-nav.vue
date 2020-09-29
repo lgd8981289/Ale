@@ -194,9 +194,14 @@ export default {
       }, 50);
     },
     setItemRef(el) {
-      this.refTabs.push(el);
-      console.log(this.refTabs);
+      if (el) {
+        this.refTabs.push(el);
+      }
     }
+  },
+
+  beforeUpdate() {
+    this.refTabs = [];
   },
 
   updated() {
@@ -317,7 +322,13 @@ export default {
             role="tablist"
             on-keydown={changeTab}
           >
-            {!type ? <TabBar tabs={panes}></TabBar> : null}
+            {!type ? (
+              <TabBar
+                tabs={panes}
+                refTabs={this.refTabs}
+                tabPosition={this.rootTabs.tabPosition}
+              ></TabBar>
+            ) : null}
             {tabs}
           </div>
         </div>

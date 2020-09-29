@@ -18,7 +18,9 @@ export default {
   name: 'TabBar',
 
   props: {
-    tabs: Array
+    tabs: Array,
+    refTabs: Array,
+    tabPosition: String
   },
 
   inject: ['rootTabs'],
@@ -35,14 +37,12 @@ export default {
   },
 
   mounted() {
-    this.onUpdateBarStyle();
     $alOn(this.alTabNavTabClickSymbol, this.onUpdateBarStyle);
   },
 
   methods: {
     async onUpdateBarStyle() {
       await nextTick();
-      console.log(this.refTabs);
       let style = {};
       let offset = 0;
       let tabSize = 0;
@@ -52,10 +52,9 @@ export default {
       const firstUpperCase = str => {
         return str.toLowerCase().replace(/( |^)[a-z]/g, L => L.toUpperCase());
       };
-
       this.tabs.every((tab, index) => {
-        let $el = arrayFind(document.getElementsByClassName('al-tabs__item') || [], t => {
-          return t.id.replace('tab-', '') === tab.props.name;
+        let $el = arrayFind(this.refTabs || [], t => {
+          return t.id.replace('tab-', '') === (tab.props.name || tab.props.pIndex);
         });
         if (!$el) {
           return false;
@@ -82,6 +81,14 @@ export default {
       style.msTransform = transform;
       style.webkitTransform = transform;
       this.barStyle = style;
+    }
+  },
+  watch: {
+    tabPosition: {
+      handler() {
+        this.onUpdateBarStyle();
+      },
+      immediate: true
     }
   }
 };
