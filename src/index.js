@@ -46,6 +46,8 @@ import Menu from '@components/menu/index.js';
 import Submenu from '@components/submenu/index.js';
 import MenuItem from '@components/menu-item/index.js';
 import MenuItemGroup from '@components/menu-item-group/index.js';
+import AlBreadcrumbItem from '@components/breadcrumb-item/index.js'
+import AlBreadcrumb from '@components/breadcrumb/index.js'
 
 const components = [
   AlAlert,
@@ -92,7 +94,9 @@ const components = [
   Menu,
   Submenu,
   MenuItem,
-  MenuItemGroup
+  MenuItemGroup,
+  AlBreadcrumbItem,
+  AlBreadcrumb
 ];
 
 const install = function(app, opts = {}) {
